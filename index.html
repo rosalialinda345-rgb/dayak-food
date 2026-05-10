@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DayakFood – Makanan Khas Dayak Kalbar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">DayakFood</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header id="navbar">
+  <h2 class="logo">🌿 DayakFood</h2>
+  <nav>
+    <a href="#home">Beranda</a>
+    <a href="#about">Tentang</a>
+    <a href="#menu">Menu</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#lokasi">Lokasi</a>
+    <a href="#kontak">Kontak</a>
+    <a href="#testimoni">Testimoni</a>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</header>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav">
+  <a href="#home" onclick="toggleMenu()">Beranda</a>
+  <a href="#about" onclick="toggleMenu()">Tentang</a>
+  <a href="#menu" onclick="toggleMenu()">Menu</a>
+  <a href="#galeri" onclick="toggleMenu()">Galeri</a>
+  <a href="#lokasi" onclick="toggleMenu()">Lokasi</a>
+  <a href="#kontak" onclick="toggleMenu()">Kontak</a>
+  <a href="#testimoni" onclick="toggleMenu()">Testimoni</a>
+</div>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="dayak-pattern-overlay"></div>
+
+  <!-- MOTIF DAYAK KALBAR SVG -->
+  <div class="hero-dayak-bg">
+    <svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="dayak-tile" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+          <polygon points="60,4 116,60 60,116 4,60" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+          <polygon points="60,18 102,60 60,102 18,60" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
+          <polygon points="60,4 80,24 60,24" fill="rgba(212,175,55,0.18)"/>
+          <polygon points="116,60 96,40 96,60" fill="rgba(212,175,55,0.18)"/>
+          <polygon points="60,116 40,96 60,96" fill="rgba(212,175,55,0.18)"/>
+          <polygon points="4,60 24,80 24,60" fill="rgba(212,175,55,0.18)"/>
+          <polygon points="60,30 70,50 60,45 50,50" fill="rgba(212,175,55,0.25)" stroke="#D4AF37" stroke-width="0.6"/>
+          <polygon points="60,90 70,70 60,75 50,70" fill="rgba(212,175,55,0.25)" stroke="#D4AF37" stroke-width="0.6"/>
+          <polygon points="30,60 50,50 45,60 50,70" fill="rgba(212,175,55,0.25)" stroke="#D4AF37" stroke-width="0.6"/>
+          <polygon points="90,60 70,50 75,60 70,70" fill="rgba(212,175,55,0.25)" stroke="#D4AF37" stroke-width="0.6"/>
+          <circle cx="60" cy="60" r="4" fill="rgba(212,175,55,0.35)" stroke="#D4AF37" stroke-width="0.8"/>
+          <circle cx="60" cy="60" r="1.5" fill="#D4AF37"/>
+          <circle cx="0"   cy="0"   r="2" fill="rgba(212,175,55,0.25)"/>
+          <circle cx="120" cy="0"   r="2" fill="rgba(212,175,55,0.25)"/>
+          <circle cx="0"   cy="120" r="2" fill="rgba(212,175,55,0.25)"/>
+          <circle cx="120" cy="120" r="2" fill="rgba(212,175,55,0.25)"/>
+          <line x1="60" y1="4"   x2="60" y2="18"  stroke="#D4AF37" stroke-width="0.8"/>
+          <line x1="60" y1="102" x2="60" y2="116" stroke="#D4AF37" stroke-width="0.8"/>
+          <line x1="4"  y1="60"  x2="18" y2="60"  stroke="#D4AF37" stroke-width="0.8"/>
+          <line x1="102" y1="60" x2="116" y2="60" stroke="#D4AF37" stroke-width="0.8"/>
+          <path d="M60,4 Q68,10 60,18 Q52,10 60,4" fill="rgba(212,175,55,0.2)" stroke="#D4AF37" stroke-width="0.5"/>
+          <path d="M60,116 Q68,110 60,102 Q52,110 60,116" fill="rgba(212,175,55,0.2)" stroke="#D4AF37" stroke-width="0.5"/>
+          <path d="M4,60 Q10,68 18,60 Q10,52 4,60" fill="rgba(212,175,55,0.2)" stroke="#D4AF37" stroke-width="0.5"/>
+          <path d="M116,60 Q110,68 102,60 Q110,52 116,60" fill="rgba(212,175,55,0.2)" stroke="#D4AF37" stroke-width="0.5"/>
+        </pattern>
+        <pattern id="dayak-border" x="0" y="0" width="60" height="30" patternUnits="userSpaceOnUse">
+          <polygon points="30,2 58,28 2,28" fill="none" stroke="rgba(212,175,55,0.5)" stroke-width="1"/>
+          <polygon points="30,8 52,26 8,26" fill="rgba(212,175,55,0.12)"/>
+        </pattern>
+        <radialGradient id="vign" cx="50%" cy="50%" r="70%">
+          <stop offset="0%"   stop-color="transparent"/>
+          <stop offset="100%" stop-color="rgba(20,5,0,0.45)"/>
+        </radialGradient>
+      </defs>
+      <rect width="1440" height="900" fill="url(#dayak-tile)"/>
+      <rect x="0" y="0" width="1440" height="30" fill="url(#dayak-border)" opacity="0.7"/>
+      <rect x="0" y="870" width="1440" height="30" fill="url(#dayak-border)" opacity="0.7" transform="rotate(180,720,885)"/>
+      <g transform="translate(1060,450)" opacity="0.25">
+        <circle cx="0" cy="0" r="220" fill="none" stroke="#D4AF37" stroke-width="1"/>
+        <circle cx="0" cy="0" r="180" fill="none" stroke="#D4AF37" stroke-width="0.6"/>
+        <circle cx="0" cy="0" r="140" fill="none" stroke="#D4AF37" stroke-width="1"/>
+        <circle cx="0" cy="0" r="80"  fill="none" stroke="#D4AF37" stroke-width="0.8"/>
+        <line x1="0" y1="-220" x2="0"    y2="-80"  stroke="#D4AF37" stroke-width="0.8"/>
+        <line x1="0" y1="220"  x2="0"    y2="80"   stroke="#D4AF37" stroke-width="0.8"/>
+        <line x1="-220" y1="0" x2="-80"  y2="0"    stroke="#D4AF37" stroke-width="0.8"/>
+        <line x1="220"  y1="0" x2="80"   y2="0"    stroke="#D4AF37" stroke-width="0.8"/>
+        <line x1="-156" y1="-156" x2="-57" y2="-57" stroke="#D4AF37" stroke-width="0.6"/>
+        <line x1="156"  y1="-156" x2="57"  y2="-57" stroke="#D4AF37" stroke-width="0.6"/>
+        <line x1="-156" y1="156"  x2="-57" y2="57"  stroke="#D4AF37" stroke-width="0.6"/>
+        <line x1="156"  y1="156"  x2="57"  y2="57"  stroke="#D4AF37" stroke-width="0.6"/>
+        <ellipse cx="0" cy="-200" rx="12" ry="20" fill="rgba(212,175,55,0.3)" transform="rotate(0)"/>
+        <ellipse cx="0" cy="-200" rx="12" ry="20" fill="rgba(212,175,55,0.3)" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-200" rx="12" ry="20" fill="rgba(212,175,55,0.3)" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-200" rx="12" ry="20" fill="rgba(212,175,55,0.3)" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-200" rx="12" ry="20" fill="rgba(212,175,55,0.3)" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-200" rx="12" ry="20" fill="rgba(212,175,55,0.3)" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-200" rx="12" ry="20" fill="rgba(212,175,55,0.3)" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-200" rx="12" ry="20" fill="rgba(212,175,55,0.3)" transform="rotate(315)"/>
+        <circle cx="0" cy="0" r="16" fill="rgba(212,175,55,0.4)" stroke="#D4AF37" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="6"  fill="#D4AF37" opacity="0.7"/>
+      </g>
+      <g transform="translate(0,0)" opacity="0.28">
+        <path d="M0,0 Q80,0 80,80 Q80,0 160,0" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+        <path d="M0,0 Q60,0 60,60 Q60,0 120,0" fill="none" stroke="#D4AF37" stroke-width="1"/>
+        <path d="M0,0 C20,0 0,20 0,40" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
+        <path d="M0,0 C40,0 0,40 0,80" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
+        <path d="M40,0 Q40,20 20,20 Q20,40 40,40" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
+        <path d="M80,0 Q80,30 50,30 Q50,60 80,60" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
+        <circle cx="40" cy="20" r="4" fill="rgba(212,175,55,0.4)"/>
+        <circle cx="80" cy="30" r="4" fill="rgba(212,175,55,0.4)"/>
+      </g>
+      <g transform="translate(1440,900) rotate(180)" opacity="0.28">
+        <path d="M0,0 Q80,0 80,80 Q80,0 160,0" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+        <path d="M0,0 Q60,0 60,60 Q60,0 120,0" fill="none" stroke="#D4AF37" stroke-width="1"/>
+        <path d="M0,0 C20,0 0,20 0,40" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
+        <path d="M0,0 C40,0 0,40 0,80" fill="none" stroke="#D4AF37" stroke-width="0.8"/>
+        <circle cx="40" cy="20" r="4" fill="rgba(212,175,55,0.4)"/>
+        <circle cx="80" cy="30" r="4" fill="rgba(212,175,55,0.4)"/>
+      </g>
+      <rect width="1440" height="900" fill="url(#vign)"/>
+    </svg>
+  </div>
+
+  <div class="tribal-deco t1"></div>
+  <div class="tribal-deco t2"></div>
+  <div class="tribal-deco t3"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">🌺 Autentik · Tradisional · Lezat</div>
+      <h1>Makanan Khas<br><span>Dayak Kalbar</span></h1>
+      <p class="hero-sub">Rasa tradisional yang jarang kamu temuin! Bumbu autentik dari hutan Borneo, bikin nagih dari suapan pertama.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/6285250720929" class="btn btn-primary">🛒 Pesan Sekarang</a>
+        <a href="#menu" class="btn btn-outline">📖 Lihat Menu</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span>200+</span><small>Pelanggan Puas</small></div>
+        <div class="stat"><span>10+</span><small>Menu Spesial</small></div>
+        <div class="stat"><span>100%</span><small>Bahan Segar</small></div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <div class="img-frame">
+        <img src="gambar.jpeg" onclick="zoomImage(this)" alt="Makanan Khas Dayak" class="main-food-img">
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-arrow"></div>
+    <small>Scroll ke bawah</small>
+  </div>
+</section>
+
+<!-- KEUNGGULAN STRIP -->
+<div class="keunggulan-strip">
+  <div class="keunggulan-item">🌿 Bumbu Asli Hutan Borneo</div>
+  <div class="keunggulan-item">🍃 Tanpa Pengawet</div>
+  <div class="keunggulan-item">⚡ Siap Saji 10 Menit</div>
+  <div class="keunggulan-item">🏡 Resep Turun-Temurun</div>
+  <div class="keunggulan-item">🌿 Bumbu Asli Hutan Borneo</div>
+  <div class="keunggulan-item">🍃 Tanpa Pengawet</div>
+  <div class="keunggulan-item">⚡ Siap Saji 10 Menit</div>
+  <div class="keunggulan-item">🏡 Resep Turun-Temurun</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="section-label">Tentang Kami</div>
+  <div class="about-content">
+    <div class="about-video-wrap">
+      <video src="vid .mp4" controls poster="tentang kami.jpeg"></video>
+    </div>
+    <div class="about-text">
+      <h1>Warisan Rasa<br><em>Dari Hutan Borneo</em></h1>
+      <p>Makanan khas Dayak Kalimantan Barat menonjolkan cita rasa autentik hasil hutan didominasi rasa asam, pedas, dan gurih alami tanpa minyak berlebih.</p>
+      <p>Teknik memasak tradisional yang ikonik meliputi penggunaan bambu (<strong>pansoh</strong>), fermentasi (<strong>wadi/pekasam</strong>), dan bumbu khas kecombrang serta daun kesum yang tidak ditemukan di masakan lain.</p>
+      <div class="about-tags">
+        <span class="tag">⚠️ Non Halal</span>
+        <span class="tag">🌿 Bahan Segar Alam</span>
+        <span class="tag">⏱️ Siap Saji 10 Menit</span>
+        <span class="tag">🔥 Resep Tradisional</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="menu">
+  <div class="section-label">Menu Kami</div>
+  <h2 class="section-title">Menu Best Seller</h2>
+  <p class="section-sub">Dipilih langsung dari resep leluhur Dayak Kalbar</p>
+  <div class="menu-container">
+    <div class="card" data-aos>
+      <span class="badge">🔥 Best Seller</span>
+      <div class="card-img-wrap">
+        <img src="tunu.jpeg" onclick="zoomImage(this)" alt="Babi Tunu">
+        <div class="card-overlay">
+          <button onclick="zoomImage(this.closest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Babi Tunu/Bakar</h3>
+        <p>Babi yang di-tunu khas Dayak dengan bumbu tradisional pilihan</p>
+        <div class="card-footer">
+          <span class="price">Rp 62.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-aos>
+      <span class="badge">🌟 Spesial</span>
+      <div class="card-img-wrap">
+        <img src="sigah.jpeg" onclick="zoomImage(this)" alt="Sigah Babi">
+        <div class="card-overlay">
+          <button onclick="zoomImage(this.closest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Sigah Babi</h3>
+        <p>Babi dimasak menggunakan bambu dengan campuran darah babi khas Dayak</p>
+        <div class="card-footer">
+          <span class="price">Rp 68.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-aos>
+      <span class="badge">🌶️ Pedas</span>
+      <div class="card-img-wrap">
+        <img src="rica.jpeg" onclick="zoomImage(this)" alt="Babi Rica-rica">
+        <div class="card-overlay">
+          <button onclick="zoomImage(this.closest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Babi Rica-rica</h3>
+        <p>Dimasak dengan full rempah khas Dayak yang kaya aroma</p>
+        <div class="card-footer">
+          <span class="price">Rp 60.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="menu" class="menu">
+  <h2 class="section-title">Menu Paketan</h2>
+  <p class="section-sub">Dipilih langsung dari resep leluhur Dayak Kalbar</p>
+  <div class="menu-container">
+    <div class="card" data-aos>
+      <span class="badge">🔥 Paket Legkap</span>
+      <div class="card-img-wrap">
+        <img src="paketan.jpeg" onclick="zoomImage(this)" alt="Paketan Babi Rica Rebung Belacan">
+        <div class="card-overlay">
+          <button onclick="zoomImage(this.closest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Paketan Babi Rica Rebung Belacan</h3>
+        <p>Paket Komplit</p>
+        <div class="card-footer">
+          <span class="price">Rp 48.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-aos>
+      <span class="badge">🔥 Paket Legkap</span>
+      <div class="card-img-wrap">
+        <img src="paketan.jpeg" onclick="zoomImage(this)" alt="Paketan Babi Rica Sambal Jengkol">
+        <div class="card-overlay">
+          <button onclick="zoomImage(this.closest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Paketan Babi Rica Sambal Jengkol</h3>
+        <p>Paket Komplit</p>
+        <div class="card-footer">
+          <span class="price">Rp 48.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-aos>
+      <span class="badge">🔥 Paket Legkap</span>
+      <div class="card-img-wrap">
+        <img src="paketan.jpeg" onclick="zoomImage(this)" alt="Paketan Babi Rica Daun Ubi">
+        <div class="card-overlay">
+          <button onclick="zoomImage(this.closest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Paketan Babi Rica Daun Ubi</h3>
+        <p>Paket Komplit</p>
+        <div class="card-footer">
+          <span class="price">Rp 48.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+    <section id="menu" class="menu">
+  <h2 class="section-title">Menu Tambahan</h2>
+  <p class="section-sub">Dipilih langsung dari resep leluhur Dayak Kalbar</p>
+  <div class="menu-container">
+    <div class="card" data-aos>
+      <span class="badge">🔥 Spesial</span>
+      <div class="card-img-wrap">
+        <img src="sate.jpeg" onclick="zoomImage(this)" alt="Sate Babi">
+        <div class="card-overlay">
+          <button onclick="zoomImage(this.closest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Sate Babi</h3>
+        <p>Sate Babi Yg Nikmat Di Siram Sambal Rempah Yg Berlimlah Jadi Semakin Nikmat Dan Kuah Sambal Nya yang Segar ,manis,dan Bisa Request Pedas Atau Tidak Ya</p>
+        <div class="card-footer">
+          <span class="price">Rp 85.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-aos>
+      <span class="badge">🔥 Spesial</span>
+      <div class="card-img-wrap">
+        <img src="bakso.jpeg" onclick="zoomImage(this)" alt="Bakso Babi">
+        <div class="card-overlay">
+          <button onclick="zoomImage(this.closest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Bakso Babi</h3>
+        <p>Full Daging Bakso Nya Sedap</p>
+        <div class="card-footer">
+          <span class="price">Rp 36.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-aos>
+      <span class="badge">🔥 Spesial</span>
+      <div class="card-img-wrap">
+        <img src="nasi.jpeg" onclick="zoomImage(this)" alt="Nasi Goreng Babi">
+        <div class="card-overlay">
+          <button onclick="zoomImage(thisclosest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Nasi Goreng Babi</h3>
+        <p>Perpaduan Babi Dan Gurih Nyesshhhhhh</p>
+        <div class="card-footer">
+          <span class="price">Rp 42.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+     <div class="card" data-aos>
+      <span class="badge">🔥 Spesial</span>
+      <div class="card-img-wrap">
+        <img src="sop.jpeg" onclick="zoomImage(this)" alt="Sop Tulang Babi">
+        <div class="card-overlay">
+          <button onclick="zoomImage(thisclosest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Sop Tulang Babi</h3>
+        <p>Sop tulang babi dengan kaldu yangyg nikmat</p>
+        <div class="card-footer">
+          <span class="price">Rp 60.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+     <div class="card" data-aos>
+      <span class="badge">🔥 Spesial</span>
+      <div class="card-img-wrap">
+        <img src="tampuyak.jpeg" onclick="zoomImage(this)" alt="Tempoyak">
+        <div class="card-overlay">
+          <button onclick="zoomImage(thisclosest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Tempoyak</h3>
+        <p>Durian Fermentasi</p>
+        <div class="card-footer">
+          <span class="price">Rp 38.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+     <div class="card" data-aos>
+      <span class="badge">🔥 Spesial</span>
+      <div class="card-img-wrap">
+        <img src="pakasam.jpeg" onclick="zoomImage(this)" alt="Pekasam Babi Goreng">
+        <div class="card-overlay">
+          <button onclick="zoomImage(thisclosest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Pekasam Babi Goreng</h3>
+        <p>Babi Fermentasi</p>
+        <div class="card-footer">
+          <span class="price">Rp 60.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+    <section id="menu" class="menu">
+  <h2 class="section-title">Minuman</h2>
+  <div class="menu-container">
+    <div class="card" data-aos>
+      <div class="card-img-wrap">
+        <img src="air.jpeg.png" onclick="zoomImage(this)" alt="Air Mineral">
+        <div class="card-overlay">
+          <button onclick="zoomImage(this.closest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Air Mineral</h3>
+        <div class="card-footer">
+          <span class="price">Rp 10.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-aos>
+      <div class="card-img-wrap">
+        <img src="teh es.jfif" onclick="zoomImage(this)" alt="Teh Es">
+        <div class="card-overlay">
+          <button onclick="zoomImage(this.closest('.card-img-wrap').querySelector('img'))">🔍 Lihat</button>
+          <a href="https://wa.me/6285250720929" target="_blank">🛒 Pesan</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Teh Es</h3>
+        <div class="card-footer">
+          <span class="price">Rp 10.000</span>
+          <a href="https://wa.me/6285250720929" class="order-btn">Pesan</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- GALERI -->
+<section id="galeri" class="galeri">
+  <div class="section-label">Galeri</div>
+  <h2 class="section-title">Foto &amp; Video</h2>
+  <div class="galeri-grid">
+    <div class="galeri-item video-main" onclick="openVideoPopup('vid 2.mp4')">
+      <video src="vid 2.mp4" muted preload="metadata" style="pointer-events:none;"></video>
+      <div class="play-btn">▶</div>
+      <div class="vid-label">🎬 Video</div>
+    </div>
+    <div class="galeri-item foto-1" onclick="zoomImage(this.querySelector('img'))">
+      <img src="gambar 0.jpeg" alt="Galeri 1">
+      <div class="zoom-icon">🔍</div>
+    </div>
+    <div class="galeri-item foto-2" onclick="zoomImage(this.querySelector('img'))">
+      <img src="gambar 10.jpeg" alt="Galeri 2">
+      <div class="zoom-icon">🔍</div>
+    </div>
+    <div class="galeri-item foto-3" onclick="zoomImage(this.querySelector('img'))">
+      <img src="gambar 11.jpeg" alt="Galeri 3">
+      <div class="zoom-icon">🔍</div>
+    </div>
+    <div class="galeri-item foto-4" onclick="zoomImage(this.querySelector('img'))">
+      <img src="tentang kami.jpeg" alt="Galeri 4">
+      <div class="zoom-icon">🔍</div>
+    </div>
+    <div class="galeri-item foto-4" onclick="zoomImage(this.querySelector('img'))">
+      <img src="WhatsApp Image 2026-05-10 at 02.23.56.jpeg" alt="Galeri 4">
+      <div class="zoom-icon">🔍</div>
+  </div>
+</section>
+
+<!-- CARA PESAN -->
+<section class="cara-pesan">
+  <div class="section-label">Cara Pesan</div>
+  <h2 class="section-title">Pesan Sekarang, Mudah!</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-icon">📱</div>
+      <h3>Hubungi Kami</h3>
+      <p>Chat WhatsApp atau DM Instagram kami</p>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-icon">🍽️</div>
+      <h3>Pilih Menu</h3>
+      <p>Pilih menu favorit kamu dari daftar kami</p>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-icon">💳</div>
+      <h3>Bayar &amp; Konfirmasi</h3>
+      <p>Transfer dan kirim bukti pembayaran</p>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-icon">🚀</div>
+      <h3>Siap Dinikmati!</h3>
+      <p>Pesanan siap dalam 10 menit</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOKASI & PETA -->
+<section id="lokasi" class="lokasi">
+  <svg class="lokasi-corner tl" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 Q120,0 120,120" fill="none" stroke="#D4AF37" stroke-width="2"/>
+    <path d="M0,0 Q90,0 90,90"   fill="none" stroke="#D4AF37" stroke-width="1"/>
+    <path d="M0,0 Q60,0 60,60"   fill="none" stroke="#D4AF37" stroke-width="1"/>
+    <circle cx="30" cy="30" r="5" fill="#D4AF37" opacity="0.6"/>
+    <circle cx="60" cy="20" r="3" fill="#D4AF37" opacity="0.4"/>
+    <circle cx="20" cy="60" r="3" fill="#D4AF37" opacity="0.4"/>
+    <polygon points="10,0 20,10 0,10" fill="#D4AF37" opacity="0.4"/>
+    <polygon points="0,10 10,20 0,20" fill="#D4AF37" opacity="0.3"/>
+  </svg>
+  <svg class="lokasi-corner tr" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 Q120,0 120,120" fill="none" stroke="#D4AF37" stroke-width="2"/>
+    <path d="M0,0 Q90,0 90,90"   fill="none" stroke="#D4AF37" stroke-width="1"/>
+    <path d="M0,0 Q60,0 60,60"   fill="none" stroke="#D4AF37" stroke-width="1"/>
+    <circle cx="30" cy="30" r="5" fill="#D4AF37" opacity="0.6"/>
+    <polygon points="10,0 20,10 0,10" fill="#D4AF37" opacity="0.4"/>
+  </svg>
+  <svg class="lokasi-corner bl" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 Q120,0 120,120" fill="none" stroke="#D4AF37" stroke-width="2"/>
+    <path d="M0,0 Q90,0 90,90"   fill="none" stroke="#D4AF37" stroke-width="1"/>
+    <circle cx="30" cy="30" r="5" fill="#D4AF37" opacity="0.6"/>
+    <polygon points="10,0 20,10 0,10" fill="#D4AF37" opacity="0.4"/>
+  </svg>
+  <svg class="lokasi-corner br" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 Q120,0 120,120" fill="none" stroke="#D4AF37" stroke-width="2"/>
+    <path d="M0,0 Q90,0 90,90"   fill="none" stroke="#D4AF37" stroke-width="1"/>
+    <circle cx="30" cy="30" r="5" fill="#D4AF37" opacity="0.6"/>
+    <polygon points="10,0 20,10 0,10" fill="#D4AF37" opacity="0.4"/>
+  </svg>
+
+  <div class="section-label">Lokasi</div>
+  <h2 class="section-title">Temukan Kami</h2>
+  <p class="section-sub">Kunjungi kami langsung atau pesan via WhatsApp untuk pengiriman</p>
+
+  <div class="lokasi-wrapper">
+    <div class="lokasi-info">
+      <div class="lokasi-card">
+        <span class="lokasi-card-icon">📍</span>
+        <h4>Alamat Lengkap</h4>
+        <p>Jl. Perdana, Komplek Perdanacityresiden No. B17<br>Pontianak, Kalimantan Barat 78116</p>
+      </div>
+      <div class="lokasi-card">
+        <span class="lokasi-card-icon">🕐</span>
+        <h4>Jam Operasional</h4>
+        <div class="jam-buka"><span>Senin – Jumat</span><span>08.00 – 21.00</span></div>
+        <div class="jam-buka"><span>Sabtu – Minggu</span><span>08.00 – 21.00</span></div>
+        <div class="badge-open"><div class="badge-dot"></div> Buka Setiap Hari</div>
+      </div>
+      <div class="lokasi-card">
+        <span class="lokasi-card-icon">🚗</span>
+        <h4>Cara ke Sini</h4>
+        <p>Tersedia parkir kendaraan roda dua dan empat. Mudah dijangkau dari pusat kota Pontianak.</p>
+      </div>
+      <div class="lokasi-card">
+        <span class="lokasi-card-icon">📞</span>
+        <h4>Hubungi Kami</h4>
+        <p><a href="https://wa.me/6285250720929">💬 +62 852-5072-0929</a></p>
+        <p><a href="https://instagram.com/makanankhasdayak_kalbar">📷 @makanankhasdayak_kalbar</a></p>
+      </div>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Jl.+Perdana+Komplek+Perdanacityresiden+B17+Pontianak" target="_blank" rel="noopener" class="btn-directions">
+        🗺️ Petunjuk Arah Google Maps
+      </a>
+    </div>
+
+    <div class="lokasi-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.342!2d109.332!3d-0.0263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d58ebae0c68f7%3A0x9f5c6e7b8d1a2c3e!2sJl.%20Perdana%2C%20Pontianak%2C%20Kalimantan%20Barat!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Lokasi DayakFood Pontianak">
+      </iframe>
+      <div class="map-pin-label">
+        📍 <span>DayakFood</span> — Komp. Perdanacityresiden B17, Pontianak
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak" class="kontak">
+  <div class="section-label">Kontak</div>
+  <h2 class="section-title">Kontak Kami</h2>
+  <div class="kontak-container">
+    <div class="kontak-item">
+      <div class="kontak-icon">📍</div>
+      <h3>Alamat</h3>
+      <p>Pontianak, Jl. Perdana, Komplek Perdanacityresiden No B17</p>
+    </div>
+    <div class="kontak-item">
+      <div class="kontak-icon">📷</div>
+      <h3>Instagram</h3>
+      <a href="https://instagram.com/makanankhasdayak_kalbar" target="_blank">@makanankhasdayak_kalbar</a>
+    </div>
+    <div class="kontak-item">
+      <div class="kontak-icon">💬</div>
+      <h3>WhatsApp</h3>
+      <a href="https://wa.me/6285250720929" class="wa-btn">Chat WhatsApp</a>
+    </div>
+    <div class="kontak-item">
+      <div class="kontak-icon">🕐</div>
+      <h3>Jam Buka</h3>
+      <p>Senin – Minggu<br><strong>08.00 – 21.00 WIB</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni" class="testimoni">
+  <div class="section-label">Testimoni</div>
+  <h2 class="section-title">Ulasan Pelanggan</h2>
+  <div class="testi-showcase">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"Babi tununya juara banget! Bumbu meresap sempurna. Wajib coba!"</p>
+      <div class="testi-author">— Rina, Pontianak</div>
+    </div>
+    <div class="testi-card featured">
+      <div class="stars">★★★★★</div>
+      <p>"Sigah Babi-nya beda dari yang lain, rasa bambu dan darahnya bikin unik. Autentik banget!"</p>
+      <div class="testi-author">— Budi, Pontianak</div>
+    </div>
+    </div>
+  </div>
+  <div class="testi-form-wrap">
+    <h3>✍️ Tulis Ulasan Kamu</h3>
+    <div class="testi-form">
+      <input type="text" id="testi-name" placeholder="Nama kamu..." />
+      <div class="star-picker" id="star-picker">
+        <span onclick="setStars(1)">★</span>
+        <span onclick="setStars(2)">★</span>
+        <span onclick="setStars(3)">★</span>
+        <span onclick="setStars(4)">★</span>
+        <span onclick="setStars(5)">★</span>
+      </div>
+      <textarea id="testi-text" placeholder="Tulis pengalaman kamu di sini..."></textarea>
+      <button onclick="submitTesti()">Kirim Ulasan 🚀</button>
+    </div>
+    <div id="testi-result"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h2>🌿 DayakFood</h2>
+      <p>Cita rasa autentik dari hutan Borneo, hadir untuk kamu di Pontianak.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Navigasi</h4>
+      <a href="#home">Beranda</a>
+      <a href="#about">Tentang</a>
+      <a href="#menu">Menu</a>
+      <a href="#lokasi">Lokasi</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+    <div class="footer-contact">
+      <h4>Hubungi</h4>
+      <p>📱 <a href="https://wa.me/6285250720929">+62 852-5072-0929</a></p>
+      <p>📷 <a href="https://instagram.com/makanankhasdayak_kalbar">Instagram</a></p>
+      <p>📍 Pontianak, Kalbar</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 DayakFood · Makanan Khas Dayak Kalimantan Barat · Semua hak dilindungi</p>
+  </div>
+</footer>
+
+<!-- ZOOM IMAGE POPUP -->
+<div id="popup-img" onclick="closeZoom()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;cursor:pointer;">
+  <img id="popup-content" style="max-width:90%;max-height:90vh;border-radius:12px;object-fit:contain;">
+  <div class="popup-close" style="position:absolute;top:20px;right:28px;color:#fff;font-size:2rem;cursor:pointer;">✕</div>
+</div>
+
+<!-- VIDEO POPUP -->
+<div id="popup-video" onclick="closeVideoPopup(event)" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;">
+  <video id="popup-video-content" controls style="max-width:92%;max-height:90vh;border-radius:12px;background:#000;"></video>
+  <div onclick="closeVideoPopup(event)" style="position:absolute;top:20px;right:28px;color:#fff;font-size:2rem;cursor:pointer;">✕</div>
+</div>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/6285250720929" class="float-wa" target="_blank" title="Chat WhatsApp">💬</a>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="scrollToTop()">↑</button>
+
+<script>
+window.onload = function(){
+  setTimeout(function(){
+    var loader = document.getElementById("loader");
+    loader.style.opacity = "0";
+    setTimeout(function(){ loader.style.display="none"; }, 600);
+  }, 1200);
+}
+window.addEventListener('scroll', function(){
+  var nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  document.getElementById('backTop').style.display = window.scrollY > 300 ? 'flex' : 'none';
+});
+function toggleMenu(){
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+function zoomImage(img){
+  var popup = document.getElementById("popup-img");
+  document.getElementById("popup-content").src = img.src;
+  popup.style.display = "flex";
+}
+function closeZoom(){
+  document.getElementById("popup-img").style.display = "none";
+}
+function openVideoPopup(src){
+  var popup = document.getElementById("popup-video");
+  var vid = document.getElementById("popup-video-content");
+  vid.src = src;
+  popup.style.display = "flex";
+  vid.play();
+}
+function closeVideoPopup(e){
+  if(e.target.id === "popup-video" || e.target.tagName !== 'VIDEO'){
+    var popup = document.getElementById("popup-video");
+    var vid = document.getElementById("popup-video-content");
+    vid.pause(); vid.src = "";
+    popup.style.display = "none";
+  }
+}
+function scrollToTop(){ window.scrollTo({top:0, behavior:'smooth'}); }
+var selectedStars = 5;
+function setStars(n){
+  selectedStars = n;
+  document.querySelectorAll('#star-picker span').forEach(function(s,i){
+    s.style.color = i < n ? '#D4AF37' : '#ccc';
+  });
+}
+setStars(5);
+function submitTesti(){
+  var name = document.getElementById('testi-name').value.trim();
+  var text = document.getElementById('testi-text').value.trim();
+  var res  = document.getElementById('testi-result');
+  if(!name || !text){ res.innerHTML='<p style="color:#E67E22">⚠️ Mohon isi nama dan ulasan kamu!</p>'; return; }
+  var stars = '★'.repeat(selectedStars)+'☆'.repeat(5-selectedStars);
+  res.innerHTML='<div class="testi-card" style="margin-top:15px"><div class="stars">'+stars+'</div><p>"'+text+'"</p><div class="testi-author">— '+name+'</div></div>';
+  document.getElementById('testi-name').value='';
+  document.getElementById('testi-text').value='';
+}
+function checkAos(){
+  document.querySelectorAll('[data-aos]').forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('aos-visible');
+  });
+}
+window.addEventListener('scroll', checkAos);
+window.addEventListener('load', checkAos);
+var strip = document.querySelector('.keunggulan-strip');
+if(strip) strip.innerHTML += strip.innerHTML;
+</script>
+</body>
+</html>
